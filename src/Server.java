@@ -17,7 +17,7 @@ public class Server {
 			port = Integer.parseInt(args[0]);
 		}
 			
-		try {//this try loop may need to go***********************************************************************
+		try {
 		 	ServerSocket sock = new ServerSocket(port);
 		 	
 			do {
@@ -29,8 +29,8 @@ public class Server {
 					
 					String choice = in.readLine();
 					 
-					do{
-						boolean exit = false;
+					
+						boolean exit = false;//may need to be deleted
 				
 						switch(choice) {
 							case "1":
@@ -53,18 +53,15 @@ public class Server {
 								break;
 							default:
 								System.out.println("Quit");
-								exit = true;
+								exit = true;//This may need to be deleted
 							}
 					
-							//exits the loop because the client chose to exit or a command was wrong 
+							//exits the loop because the client chose to exit or a command was wrong. This may need to be deleted
 							if(exit) {
 								break;
 							}
 						
-							//another thing to add to the loop if I make one, is to write a command/message to the client telling it to stop listening for server output after 
-							//the first command selected, has finished printing  i.e. client enters command, client listens for output from server, when server is done outputting,
-							//it sends something telling the client to stop listening
-					} while((choice = in.readLine()) != null);
+							
 					
 					foot.close();
 					System.out.println("Client has disconnected");
@@ -96,6 +93,7 @@ public class Server {
 			while((linereader = input.readLine()) != null) {
 				print.println(linereader);
 			}
+			print.println("Finished");
 			
 		} catch (IOException e) {
 			System.out.println("There was an issue with the input ofthe command or the output.");
